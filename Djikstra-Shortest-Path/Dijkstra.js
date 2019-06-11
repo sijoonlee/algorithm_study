@@ -151,6 +151,8 @@ class Dijkstra {
 
 }
 
+// Test Code
+
 var vertices = [new Vertex(0, 0, 0), new Vertex(1, 0, 2), new Vertex(2, 2, 0), new Vertex(3, 2, 2)]
 var edges = [new Edge(0, 0, 1, 1), new Edge(1, 0, 2, 3), new Edge(2, 1, 2, 1), new Edge(3, 1, 3, 7), new Edge(4, 2, 3, 4)]
 
