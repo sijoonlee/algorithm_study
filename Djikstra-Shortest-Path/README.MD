@@ -33,3 +33,7 @@ Test Case is like below
 - Set calculated distance to 2 (which is v3's score)
 - From every edges where v3 is head, find its tail vertex and update its Dijkstra's score  
     1) v4: the score will be updated from 8 to 6 ( 2 + 4 )
+
+## Done!  
+- the Shortest Path is : v1 -> v2 -> v3 -> v4  
+- Its length is 6
