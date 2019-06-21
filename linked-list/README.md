@@ -1,4 +1,7 @@
 ## Linked List Class
+- written in C++
+- Insert, Delete, Find, Reverse methods
+- Concatenation via Operator+ overloading
 
 **LiknkedList.h**
 ```
