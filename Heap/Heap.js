@@ -37,12 +37,22 @@ class Heap {
     // 1) delete an element in given position
     // 2) fill the position with the last element
     // 3) re-sort the tree
+    // 1) delete an element in given position
+    // 2) fill the position with the last element
+    // 3) re-sort the tree
     Delete(pos){
-        this.swap(pos, this.heapArray.length-1) // swap the element to be deleted with the last item
-        this.heapArray.pop() // delete the last one
-        this.BubbleDown(pos)
-    }
+		if(pos == this.heapArray.length-1)
+			this.heapArray.pop()
+		else {
+			this.swap(pos, this.heapArray.length-1) // swap the element to be deleted with the last item
+			let deleted = this.heapArray.pop() // delete the last one
+			if(this.heapArray[pos] > deleted)
+				this.BubbleUp(pos)
+			else if (this.heapArray[pos] < deleted)
+				this.BubbleDown(pos)	
+		}
 
+    }
     // sort the tree upwards
     BubbleUp(pos){
         if(pos > 0){
