@@ -6,7 +6,7 @@
     Week1: [Karatsuba Multiplication](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Divide_and_Conquer/Assignment1)  
     Week2: [Count Inversion in array in O(nlog(n)) Time](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Divide_and_Conquer/Assignment2)    
     Week3: [Quick Sort with four different pivots](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Divide_and_Conquer/Assignment3)  
-    Week4: Upcoming   
+    Week4: [Karger's Minimum Cut Algorithm](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Divide_and_Conquer/Assignment4)   
 
 2. Graph Search, Shortest Paths, and Data Structures  
   
