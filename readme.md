@@ -1,5 +1,7 @@
 # Algorithm Study Collection  
   
+Coding algorithms and data structures  
+  
 - [Standford's Algorithms Specialization Assignments Code in Python](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera)  
     - Karatsuba Multiplication, Count Inversion in array in O(nlog(n)) Time and so on  
   
