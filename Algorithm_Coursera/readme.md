@@ -9,7 +9,8 @@
     Week4: [Karger's Minimum Cut Algorithm](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Divide_and_Conquer/Assignment4)   
 
 2. Graph Search, Shortest Paths, and Data Structures  
-  
+    Week1: [Computing Strongly Connected Components](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment1)  
+
 3. Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming  
   
 4. Shortest Paths Revisited, NP-Complete Problems and What To Do About Them  
