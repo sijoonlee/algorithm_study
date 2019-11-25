@@ -8,7 +8,7 @@ def scc_finder(seedNo):
     """
     ########################################################
     # Data Structures
-    num_nodes = 12 # node range from 1 to 875715
+    num_nodes = 9 # node range from 1 to 875715
 
     # Adjacency representations of the graph and reverse graph
     gr = [[] for i in range(num_nodes)]
@@ -32,7 +32,7 @@ def scc_finder(seedNo):
     
     ########################################################
     # Importing the graphs
-    file = open("test1.txt", "r") # I named the input file W1_SCC_edges.txt, but you can name it whatever you wish
+    file = open("test2.txt", "r") # I named the input file W1_SCC_edges.txt, but you can name it whatever you wish
     data = file.readlines()
 
     # node labels range from 1 to 875714
@@ -48,24 +48,19 @@ def scc_finder(seedNo):
     nodes = [i for i in range(num_nodes)]
     random.seed(seedNo)  # change seed and try
     random.shuffle(nodes) 
-   
+
     print("node order in 1st DFS", nodes)
     for node in nodes:
         if visited[node] == True:
             continue
         stack.append(node)
-        visited[node] = True
-
         stack_node = -math.inf
-
+        visited[node] = True
         while stack:
-            print(stack_node, stack[-1])
-            
+            #print(stack_node, stack[-1])
             if stack_node == stack[-1]:
-            
                 stack.pop()
                 order.append(stack_node)
-            
             else:
                 stack_node = stack[-1]
                 
@@ -87,9 +82,9 @@ def scc_finder(seedNo):
         if visited_scc[node] == True:
             continue
         stack.append(node)
-        visited_scc[node] = True
         sccNo += 1
         stack_node = -math.inf
+        visited_scc[node] = True
         while stack:
             if stack_node == stack[-1]:
                 scc[sccNo].append(stack_node)
@@ -106,7 +101,7 @@ def scc_finder(seedNo):
 
 
 if __name__ == "__main__":
-    trials = 10
+    trials = 5
     totalScc = 0
     for seed in range(trials):
         scc = scc_finder(seed)

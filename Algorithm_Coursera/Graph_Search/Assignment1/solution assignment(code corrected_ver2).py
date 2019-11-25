@@ -1,3 +1,5 @@
+import math
+
 def scc_finder(seedNo):
     # Copyright David Bai: Anyone can use this code without permission or referencing the original source
     """
@@ -52,20 +54,21 @@ def scc_finder(seedNo):
         if visited[node] == True:
             continue
         stack.append(node)
-        visited[node] = True
+        #stack_node = -math.inf
 
         while stack:
         
             stack_node = stack[-1]
-            
+            no_more = True
             for head in r_gr[stack_node]:
                 if visited[head] == False:
-                    visited[head] = True
                     stack.append(head)
-            
-            if stack_node == stack[-1]:
+                    no_more = False
+            if no_more:
+                visited[head] = True
                 stack.pop()
                 order.append(stack_node)
+
 
     
     ########################################################
@@ -78,18 +81,20 @@ def scc_finder(seedNo):
         if visited_scc[node] == True:
             continue
         stack.append(node)
-        visited_scc[node] = True
         sccNo += 1
+
         while stack:
             stack_node = stack[-1]
+            no_more = True
             for tail in gr[stack_node]:
                 if visited_scc[tail] == False:
-                    visited_scc[tail] = True
+                    #visited_scc[tail] = True
                     stack.append(tail)
-            if stack_node == stack[-1]:
+                    no_more = False
+            if no_more:
+                visited_scc[node] = True
                 scc[sccNo].append(stack_node)
                 stack.pop()
-
     # # return scc
     return scc
 
@@ -112,18 +117,13 @@ if __name__ == "__main__":
         print("####################################")
 
 
-# len [434821, 968, 459, 313, 211]
 # seed 0 total # SCCs 359601
-# ####################################
-# len [434821, 968, 459, 313, 211]
 # seed 1 total # SCCs 359103
-# ####################################
-# len [434821, 968, 459, 313, 211]
 # seed 2 total # SCCs 359340
-# ####################################
-# len [434821, 968, 459, 313, 211]
 # seed 3 total # SCCs 359301
-# ####################################
-# len [434821, 968, 459, 313, 211]
 # seed 4 total # SCCs 359415
-####################################
+# seed 5 total # SCCs 359405
+# seed 6 total # SCCs 359150
+# seed 7 total # SCCs 359081
+# seed 8 total # SCCs 358936
+# seed 9 total # SCCs 359026
