@@ -1,3 +1,5 @@
+import math
+
 def scc_finder(seedNo):
     # Copyright David Bai: Anyone can use this code without permission or referencing the original source
     """
@@ -6,7 +8,7 @@ def scc_finder(seedNo):
     """
     ########################################################
     # Data Structures
-    num_nodes = 875716
+    num_nodes = 875716 # node range from 1 to 875715
 
     # Adjacency representations of the graph and reverse graph
     gr = [[] for i in range(num_nodes)]
@@ -14,11 +16,16 @@ def scc_finder(seedNo):
 
     # The list index represents the node. If node i is unvisited then visited[i] == False and vice versa
     visited = [False] * num_nodes
+    visited[0] = True # prevent using node 0 which doesn't exist
 
     # The list below holds info about sccs. The index is the scc leader and the value is the size of the scc.
-    # scc = [0] * num_nodes
+
+    visited_scc = [False] * num_nodes  # Resetting the visited variable
+
     from collections import defaultdict
     scc = defaultdict(list)
+    sccNo = 0
+
 
     stack = []  # Stack for DFS
     order = []  # The finishing orders after the first pass
@@ -36,84 +43,90 @@ def scc_finder(seedNo):
 
     # ########################################################
     # # DFS on reverse graph
-    visited[0] = True # prevent using node 0 which doesn't exist
 
     import random
     nodes = [i for i in range(num_nodes)]
-
-    random.seed(seedNo) 
-    ##################################################### change seed and try
-
+    random.seed(seedNo)  # change seed and try
     random.shuffle(nodes)
-
+   
+    #print("node order in 1st DFS", nodes)
     for node in nodes:
         if visited[node] == True:
             continue
         stack.append(node)
+        visited[node] = True
+
+        stack_node = -math.inf
+
         while stack:
-            stack_node = stack.pop()
-            if visited[stack_node] == False:
-                visited[stack_node] = True
+           
+            if stack_node == stack[-1]:
+            
+                stack.pop()
                 order.append(stack_node)
+            
+            else:
+                stack_node = stack[-1]
+                
                 for head in r_gr[stack_node]:
-                    stack.append(head)
+                    if visited[head] == False:
+                        visited[head] = True
+                        stack.append(head)
+
+
     
-    # print(order)
     ########################################################
     # DFS on original graph
-
-    visited = [False] * num_nodes  # Resetting the visited variable
+    
     stack = []
-    # order = order[1:] # delete node 0 which doesn't exist
     order.reverse()  # The nodes should be visited in reverse finishing times
-    sccNo = 0
-
-    # for node in order:
-    #     if len(gr[node]) == 0:
-    #         visited[node] = True
-    #         sccNo += 1
-    #         scc[sccNo].append(node)
-
+    # print("order in 2nd DFS", order)
     for node in order:
-        if visited[node] == True:
+        if visited_scc[node] == True:
             continue
         stack.append(node)
+        visited_scc[node] = True
         sccNo += 1
+        stack_node = -math.inf
         while stack:
-            stack_node = stack.pop()
-            if visited[stack_node] == False:
-                visited[stack_node] = True
+            if stack_node == stack[-1]:
                 scc[sccNo].append(stack_node)
+                stack.pop()
+            else:
+                stack_node = stack[-1]
                 for tail in gr[stack_node]:
-                    if visited[tail] == False:
+                    if visited_scc[tail] == False:
+                        visited_scc[tail] = True
                         stack.append(tail)
-       
-
-    # ########################################################
     # # return scc
     return scc
 
 
 
 if __name__ == "__main__":
+    trials = 10
     totalScc = 0
-    seed_list = []
-    scc_list = [0] * 10
-    the_len_array = []
-    for seed in range(10):
+    for seed in range(trials):
         scc = scc_finder(seed)
         len_array = []
         for arr in scc.values():
             len_array.append(len(arr))
-        if(totalScc < len(len_array)):
-            totalScc = len(len_array)
-            seed_list.append(seed)
-            scc_list[seed] = scc
-            len_array.sort(reverse=True)
-            the_len_array = len_array
-            print(the_len_array[:5])
-            print(seed, totalScc)
-# [434821, 969, 459, 313, 211]
-# 0 340864
-# [434821, 1179, 459, 313, 205]
-# 3 341031
+        totalScc = len(len_array)
+        len_array.sort(reverse=True)
+        
+        # print("scc", scc)
+        print("len", len_array[:5])
+        print("seed",seed, "total # SCCs",totalScc)
+        print("####################################")
+
+
+# seed 0 total # SCCs 359601
+# seed 1 total # SCCs 359103
+# seed 2 total # SCCs 359340
+# seed 3 total # SCCs 359301
+# seed 4 total # SCCs 359415
+# seed 5 total # SCCs 359405
+# seed 6 total # SCCs 359150
+# seed 7 total # SCCs 359081
+# seed 8 total # SCCs 358936
+# seed 9 total # SCCs 359026
