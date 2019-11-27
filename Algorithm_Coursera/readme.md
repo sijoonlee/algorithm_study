@@ -10,7 +10,7 @@
 
 2. Graph Search, Shortest Paths, and Data Structures  
     Week1: [Computing Strongly Connected Components](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment1)    
-    Week1: [Dijkstra with Heap structure](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment2)    
+    Week2: [Dijkstra with Heap structure](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment2)    
 
 3. Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming  
   
