@@ -64,8 +64,9 @@ def scc_finder(seedNo):
                     stack.append(head)
             
             if stack_node == stack[-1]:
+                order.append(stack[-1])
                 stack.pop()
-                order.append(stack_node)
+                
 
     
     ########################################################
