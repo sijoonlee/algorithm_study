@@ -1,14 +1,21 @@
-class Heap(object):
+class MinHeap(object):
 
     def __init__(self, init_list):
         self.heap_list = []
-        self.len = 0
         self.heapify(init_list)
+
+    def length(self):
+        return len(self.heap_list)
+
+    def findMin(self):
+        min = None
+        if(len(self.heap_list)>0):
+            min = self.heap_list[0]
+        return min
 
     def insert(self, item:int):
         self.heap_list.append(item)
-        self.len += 1
-        self.bubbleUp(self.len-1)
+        self.bubbleUp(len(self.heap_list)-1)
 
     def bubbleUp(self, pos:int):
         if(pos>0):
@@ -22,12 +29,12 @@ class Heap(object):
         right_child = pos * 2 + 2
         smaller_child = 0
 
-        if right_child <= self.len - 1:
+        if right_child <= len(self.heap_list) - 1:
             if self.heap_list[left_child] <= self.heap_list[right_child]:
                 smaller_child = left_child
             else:
                 smaller_child = right_child
-        elif left_child == self.len - 1:
+        elif left_child == len(self.heap_list) - 1:
             smaller_child = left_child
 
         if smaller_child != 0:
@@ -36,22 +43,19 @@ class Heap(object):
                 self.bubbleDown(smaller_child)
         
     def extractMin(self):
-        min = -1
-        if self.len != 0:
+        min = None
+        if len(self.heap_list) != 0:
             min = self.heap_list[0]
             self.heap_list[0] = self.heap_list.pop()
             self.bubbleDown(0)
-            self.len -= 1
         return min
     
     def delete(self, pos:int):
-        if pos == self.len -1 :
+        if pos == len(self.heap_list) -1 :
             self.heap_list.pop()
-            self.len -= 1
         else:
-            self.heap_list[pos], self.heap_list[self.len-1] = self.heap_list[self.len-1], self.heap_list[pos]
+            self.heap_list[pos], self.heap_list[len(self.heap_list)-1] = self.heap_list[len(self.heap_list)-1], self.heap_list[pos]
             deleted = self.heap_list.pop()
-            self.len -= 1
             if self.heap_list[pos] > deleted:
                 self.bubbleUp(pos)
             elif self.heap_list[pos] < deleted:
@@ -67,7 +71,7 @@ class Heap(object):
 
 
 if __name__ == "__main__":
-    heap = Heap([5,3,4,2,6])
+    heap = MinHeap([5,3,4,2,6])
     print(heap.get())
     heap.insert(1)
     print(heap.get())
