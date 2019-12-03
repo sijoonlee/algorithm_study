@@ -12,6 +12,7 @@
     Week1: [Computing Strongly Connected Components](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment1)  
     Week2: [Dijkstra with Heap structure](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment2)  
     Week3: [Find Median using MinHeap and MaxHeap](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment3)  
+    Week4: [Hash Table and 2-Sum](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Graph_Search/Assignment4)  
   
 3. Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming  
   
