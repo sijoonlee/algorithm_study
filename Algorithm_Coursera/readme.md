@@ -16,5 +16,7 @@
   
 3. Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming  
     Week1: [Scheduling algorithm and Prim's MST algorithm](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Greedy/Assignment1)  
+    Week2: [Kruskal's MST algorithm with UnionFind data structure + Hamming distance](https://github.com/sijoonlee/algorithm_study/tree/master/Algorithm_Coursera/Greedy/Assignment2)  
+
 4. Shortest Paths Revisited, NP-Complete Problems and What To Do About Them  
 
